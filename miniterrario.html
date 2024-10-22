@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+	<meta name="keywords" content="Uniexplorer, Proyecto, ITCA"> 
+	<meta name="description" content="El proyecto de FYEPN Para Ciclo II"> 
+	<meta name="author" content="Familia Platero"> <!-- -->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>UNIexplorer</title>
+  <link rel="stylesheet" type="text/css" href="css/imagenes.css">
+</head>
+<body>
+	<header class="inicial">
+			<nav>
+				<ul class="links">
+					<li><a href="index.html">Inicio</a></li>
+				</ul>
+			</nav>
+	</header>
+
+  <div class="container">
+    <h1>Galería de imágenes</h1>
+    <div class="image-gallery">
+      <img src="img2/1.jpeg" alt="Imagen 1" class="gallery-image" onclick="showImage('img2/1.jpeg')">
+      <img src="img2/2.jpeg" alt="Imagen 2" class="gallery-image" onclick="showImage('img2/2.jpeg')">
+      <img src="img2/3.jpeg" alt="Imagen 3" class="gallery-image" onclick="showImage('img2/3.jpeg')">
+      <img src="img2/4.jpeg" alt="Imagen 4" class="gallery-image" onclick="showImage('img2/4.jpeg')">
+      <img src="img2/5.jpeg" alt="Imagen 5" class="gallery-image" onclick="showImage('img2/5.jpeg')">
+      <img src="img2/6.jpeg" alt="Imagen 6" class="gallery-image" onclick="showImage('img2/6.jpeg')">
+      <img src="img2/7.jpeg" alt="Imagen 7" class="gallery-image" onclick="showImage('img2/7.jpeg')">
+      <img src="img2/8.jpeg" alt="Imagen 8" class="gallery-image" onclick="showImage('img2/8.jpeg')">
+      <img src="img2/9.jpeg" alt="Imagen 9" class="gallery-image" onclick="showImage('img2/9.jpeg')">
+      <img src="img2/10.jpeg" alt="Imagen 10" class="gallery-image" onclick="showImage('img2/10.jpeg')">
+      <img src="img2/11.jpeg" alt="Imagen 11" class="gallery-image" onclick="showImage('img2/11.jpeg')">
+      <img src="img2/12.jpeg" alt="Imagen 12" class="gallery-image" onclick="showImage('img2/12.jpeg')">
+      <img src="img2/13.jpeg" alt="Imagen 13" class="gallery-image" onclick="showImage('img2/13.jpeg')">
+      <img src="img2/14.jpeg" alt="Imagen 14" class="gallery-image" onclick="showImage('img2/14.jpeg')">
+      <!-- Continúa agregando los elementos <img> para el resto de las imágenes -->
+    </div>
+    <div id="overlay" onclick="hideImage()">
+      <img src="" alt="Imagen" id="overlay-image">
+      <button id="close-btn" onclick="hideImage()">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
