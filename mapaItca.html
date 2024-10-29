@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mapa con Superposición SVG</title>
+  <!-- Si necesitas la clave API, asegúrate de que esté correctamente configurada -->
+  <script>
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 18,
+        center: { lat: 13.673746, lng: -89.278781 }
+      });
+
+      // Ajusta las coordenadas de los límites de la superposición
+      var imageBounds = {
+        north: 13.675487,
+        south: 13.672557,
+        east: -89.25775,
+        west: -89.300
+      };
+
+      // Asegúrate de que 'mapa.svg' esté en la misma carpeta que este archivo HTML
+      var overlay = new google.maps.GroundOverlay(
+        'mapa.svg', // Ruta local al archivo SVG
+        imageBounds
+      );
+      overlay.setMap(map);
+    
+      var marcadores = [
+        { position: { lat: 13.673028594395534, lng: -89.28004394764105 }, title: "ENTRADA", content: "Entrada principal del campus." },
+        { position: { lat: 13.673809965409653, lng: -89.27956220915628 }, title: "Farmacia Empresarial", content: "Farmacia para empleados y estudiantes." },
+        { position: { lat: 13.674259621138779, lng: -89.27943323979817 }, title: "Auditorium Principal", content: "Salón principal para eventos y conferencias." },
+        { position: { lat: 13.673879993817348, lng: -89.27992635793218 }, title: "PARQUEO", content: "Área de parqueo general para visitantes y empleados." },
+        { position: { lat: 13.67470559032799, lng: -89.2797253174622 }, title: "Administracion Academica", content: "Oficinas administrativas de la academia." },
+        { position: { lat: 13.674974645704825, lng: -89.27969497173088 }, title: "Edificio de Turismo e Ingles", content: "Facultad de Turismo e Inglés." },
+        { position: { lat: 13.673166152661729, lng: -89.27923714339151 }, title: "Patio Principal", content: "Zona de descanso y reuniones al aire libre." },
+        { position: { lat: 13.673611811582283, lng: -89.27900647341323 }, title: "Libreria", content: "Librería con libros y materiales académicos." },
+        { position: { lat: 13.673762970556774, lng: -89.27906816422136 }, title: "Edificio de Mecatronica", content: "Facultad de Mecatrónica." },
+        { position: { lat: 13.673908917060793, lng: -89.27920495688291 }, title: "Edificio de Ingenieria", content: "Facultad de Ingeniería." },
+        { position: { lat: 13.674148686128458, lng: -89.27910303294018 }, title: "Edificio de Electronica", content: "Escuela de Ingeniería Eléctrica y Electrónica." },
+        { position: { lat: 13.674870612394924, lng: -89.27882751967022 }, title: "Cancha de Futbol", content: "Área deportiva para jugar fútbol." },
+        { position: { lat: 13.6733542805618, lng: -89.2786783190045 }, title: "Restaurante Meson de Goya", content: "Restaurante popular entre estudiantes." },
+        { position: { lat: 13.67371393490764, lng: -89.278651496914 }, title: "IMPRENTA", content: "Imprenta del campus." },
+        { position: { lat: 13.673672235881199, lng: -89.2785603018063 }, title: "Baños de Mujeres", content: "Baños para mujeres." },
+        { position: { lat: 13.674070982524103, lng: -89.27854957296971 }, title: "Baños de Hombres", content: "Baños para hombres." },
+        { position: { lat: 13.674162198980406, lng: -89.27826257660136 }, title: "Cubiculos de Ingles", content: "Cubículos de estudio para inglés." },
+        { position: { lat: 13.674428029600065, lng: -89.27832426741082 }, title: "Edificio de Quimica", content: "Facultad de Química." },
+        { position: { lat: 13.674649554888324, lng: -89.27827062322905 }, title: "Patio", content: "Área de descanso para estudiantes." },
+        { position: { lat: 13.673403798228753, lng: -89.27785488083002 }, title: "Area CATEC", content: "Área técnica especializada." },
+        { position: { lat: 13.673362099146466, lng: -89.2782920809027 }, title: "Parqueo Area CATEC", content: "Parqueo en la zona de CATEC." },
+        { position: { lat: 13.67384424432377, lng: -89.27767249061218 }, title: "Area de Seguridad", content: "Área de oficinas de seguridad." },
+        { position: { lat: 13.673890054455305, lng: -89.27802117778866 }, title: "Edificio de Computacion", content: "Facultad de Computación." },
+        { position: { lat: 13.67427165868638, lng: -89.2780238599986 }, title: "Cubiculos de Aprendizaje", content: "Cubículos de estudio y aprendizaje." },
+        { position: { lat: 13.674112681484987, lng: -89.27813651277869 }, title: "Parqueo Cafeteria", content: "Parqueo junto a la cafetería y facultad de computación." },
+        { position: { lat: 13.674532276823733, lng: -89.27765371515069 }, title: "Edificio de Gastronomia", content: "Facultad de Gastronomía." },
+        { position: { lat: 13.674540095363207, lng: -89.27809627964393 }, title: "Cafeteria", content: "Cafetería del campus." },
+        { position: { lat: 13.675006601089569, lng: -89.27793534710155 }, title: "Edificio de Electromecanica y Automotriz", content: "Facultad de Electromecánica y Automotriz." }
+      ];
+
+      // Crear los marcadores en el mapa
+      marcadores.forEach(function(data) {
+        var marcador = new google.maps.Marker({
+          position: data.position,
+          map: map,
+          title: data.title
+        });
+
+        var infoWindow = new google.maps.InfoWindow({
+          content: data.content
+        });
+
+        // Asignar el evento de clic a cada marcador para abrir su InfoWindow
+        marcador.addListener('click', function() {
+          infoWindow.open(map, marcador);
+        });
+      });
+    }
+  </script>
+</head>
+<body onload="initMap()">
+  <div id="map" style="height: 500px; width: 100%;"></div>
+  <a href="index1.html" style="font-weight: bold; text-decoration: none;">Si quieres regresar a la pagina anterior, haz click aqui</a>
+</body>
+</html>
